@@ -18,12 +18,12 @@ public class AniversarioService {
         if (aniversarioString == null) {
             throw new RuntimeException("Deve incluir aniversarioString");
         }
+
         try {
             return LocalDate.parse(aniversarioString, formato);
         } catch (Exception e) {
             throw new RuntimeException("Deve incluir dia de aniversario no formato dd-MM-yyyy");
         }
-
     }
 
     
@@ -34,21 +34,34 @@ public class AniversarioService {
     
     public String getZodiacoChines(LocalDate aniversario) {
         int ano = aniversario.getYear();
-        return switch (ano % 12) {
-            case 0 -> "Monkey";
-            case 1 -> "Rooster";
-            case 2 -> "Dog";
-            case 3 -> "Pig";
-            case 4 -> "Rat";
-            case 5 -> "Ox";
-            case 6 -> "Tiger";
-            case 7 -> "Rabbit";
-            case 8 -> "Dragon";
-            case 9 -> "Snake";
-            case 10 -> "Horse";
-            case 11 -> "Sheep";
-            default -> "";
-        };
+        switch (ano % 12) {
+            case 0:
+                return "Macaco";
+            case 1:
+                return "Galo";
+            case 2:
+                return "Cachorro";
+            case 3:
+                return "Porco";
+            case 4:
+                return "Rato";
+            case 5:
+                return "Boi";
+            case 6:
+                return "Tigre";
+            case 7:
+                return "Coelho";
+            case 8:
+                return "Dragão";
+            case 9:
+                return "Cobra";
+            case 10:
+                return "Cavalo";
+            case 11:
+                return "Ovelha";
+            default:
+                return "";
+        }
 
     }
 
@@ -78,7 +91,7 @@ public class AniversarioService {
         } else if (mes == 9 && dia >= 23 || mes == 10 && dia < 23) {
             return "Libra";
         } else if (mes == 10 && dia >= 23 || mes == 11 && dia < 22) {
-            return "Scorpio";
+            return "Escorpião";
         } else if (mes == 11 && dia >= 22 || mes == 12 && dia < 22) {
             return "Sagitário";
         }
